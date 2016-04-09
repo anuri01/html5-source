@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>웹마을 시네마</title>
+<meta charset="utf-8">
+<script>
+window.onload = function() {
+	// 버전 1
+	getNextShowing(movie1);
+
+	// 버전 2
+	movie1.getNextShowing();
+
+	// 버전 3
+	var banzaiMovie = new Movie("카우보이 밴자이",
+								"고전 컬트",
+								5,
+								["1:00pm", "5:00pm", "7:00pm", "11:00pm"]);
+	alert(banzaiMovie.getNextShowing());
+
+	var plan9Movie = new Movie("외계로부터의 9호 계획",
+								"고전 컬트",
+								2,
+								["3:00pm", "7:00pm", "11:00pm"]);
+	alert(plan9Movie.getNextShowing());
+
+	var forbiddenPlanetMovie = new Movie("금지된 세계",
+										"고전 SF",
+										5,
+										["5:00pm", "9:00pm"]);
+	alert(forbiddenPlanetMovie.getNextShowing());
+
+}
+
+function Movie(title, genre, rating, showtimes) {
+	this.title = title;
+	this.genre = genre;
+	this.rating = rating;
+	this.showtimes = showtimes;
+	this.getNextShowing = function() {
+		var now = new Date().getTime();
+		for (var i = 0; i < this.showtimes.length; i++) {
+			var showtime = getTimeFromString(this.showtimes[i]);
+			if ((showtime - now) > 0) {
+				return this.title + "의 다음 상영시간은 " + this.showtimes[i] + "입니다";
+			}
+		}
+		return null;
+	};
+}
+
+var movie1 = {
+	title: "외계로부터의 9호 계획",
+	genre: "고전 컬트",
+	rating: 2,
+	showtimes: ["3:00pm", "7:00pm", "11:00pm"],
+	getNextShowing: function() {
+		var now = new Date().getTime();
+		for (var i = 0; i < this.showtimes.length; i++) {
+			var showtime = getTimeFromString(this.showtimes[i]);
+			if ((showtime - now) > 0) {
+				return this.title + "의 다음 상영시간은 " + this.showtimes[i] + "입니다";
+			}
+		}
+	}
+};
+
+var movie2 = {
+	title: "금지된 세계",
+	genre: "고전 SF",
+	rating: 5,
+	showtimes: ["5:00pm", "9:00pm"],
+	getNextShowing: function() {
+		var now = new Date().getTime();
+		for (var i = 0; i < this.showtimes.length; i++) {
+			var showtime = getTimeFromString(this.showtimes[i]);
+			if ((showtime - now) > 0) {
+				return this.title + "의 다음 상영시간은 " + this.showtimes[i] + "입니다";
+			}
+		}
+	}
+};
+
+function getNextShowing(movie) {
+	var now = new Date().getTime();
+	for (var i = 0; i < movie.showtimes.length; i++) {
+		var showtime = getTimeFromString(movie.showtimes[i]);
+		if ((showtime - now) > 0) {
+			return this.title + "의 다음 상영시간은 " + this.showtime + "입니다";
+		}
+	}
+	return null;
+}
+
+function getTimeFromString(str) {
+	var theTime = new Date();
+	var time = str.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+	theTime.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
+	theTime.setMinutes( parseInt(time[2]) || 0 );
+	return theTime.getTime();
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

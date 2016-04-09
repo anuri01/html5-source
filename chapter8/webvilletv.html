@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>웹마을 TV</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="webvilletv.css">
+</head>
+<body>
+
+<div id="tv">
+
+<div id="tvConsole">
+	<div id="highlight">
+		<img src="images/highlight.png" alt="TV처럼 보이기 위한 하이라이트 효과">
+	</div>
+
+<!--
+	<div id="videoDiv">
+		<video controls
+			poster="images/prerollposter.jpg"
+			id="video" 
+			src="video/preroll.mp4" 
+			width="480" height="360">
+		</video>
+	</div>
+-->
+
+	<div id="videoDiv">
+		<video id="video"
+				poster="images/prerollposter.jpg" 
+				width="480" height="360" 
+				controls>
+        	<source src="video/preroll.mp4">
+        	<source src="video/preroll.ogv">
+        	<source src="video/preroll.webm">
+        	<p>죄송합니다, 브라우저에서 지원하지 않는 비디오 형식입니다</p>
+		</video>
+	</div>
+</div>
+
+
+</div> <!-- tv -->
+
+
+</body>
+</html>

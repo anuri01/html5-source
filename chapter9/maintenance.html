@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<title>정비</title>
+<meta charset="utf-8">
+<script>
+window.onload = function() {
+	var clearButton = document.getElementById("clear_button");
+	clearButton.onclick = clearStorage;
+}
+
+function clearStorage() {
+	localStorage.clear();
+}
+</script>
+</head>
+<body>
+	<form>
+		<input type="button" id="clear_button" value="저장소 비우기">
+	</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>TweetShirt</title>
+    <meta charset="utf-8" />
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script src="tweetshirt.js"></script>
+</head>
+<body>
+    <canvas width="600" height="200" id="tshirtCanvas">
+		<p>Tweetshirt를 사용하려면 브라우저를 업데이트하세요!</p>
+		<p>이 예제는 <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+		&lt;canvas&gt; 요소를 지원하는 브라우저에서만 제대로 됩니다.</p>
+	</canvas>
+	<form>
+	<p>
+		<label for="backgroundColor">배경색을 선택하세요:</label>
+		<select id="backgroundColor">
+			<option value="white" selected="selected">흰색</option>
+			<option value="black">검정색</option>
+		</select>
+	</p>
+	<p>
+		<label for="shape">원 또는 정사각형?</label>
+		<select id="shape">
+			<option value="none" selected="selected">없음</option>
+			<option value="circles">원</option>
+			<option value="squares">정사각형</option>
+		</select>
+	</p>
+	<p>
+		<label for="foregroundColor">글자색을 선택하세요:</label>
+		<select id="foregroundColor">
+			<option value="black" selected="selected">검정색</option>
+			<option value="white">흰색</option>
+		</select>
+	</p>
+	<p>
+		<label for="tweets">트윗을 고르세요:</label>
+		<select id="tweets">
+		</select>
+	</p>
+	<p>
+		<input type="button" id="previewButton" value="미리보기">
+	</p>
+</form>
+
+<script src="http://twitter.com/statuses/user_timeline/mudo_hyungdon_b.json?callback=updateTweets">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>도화선</title>
+<meta charset="utf-8">
+<script>
+
+localStorage.setItem("fuse", "-");
+while(true) {
+    var fuse = localStorage.getItem("fuse");
+    try { 
+        localStorage.setItem("fuse", fuse + fuse);
+    } catch(e) {
+        alert("브라우저가 " + fuse.length + "에서 예외 " + e + "로 인해 폭발했습니다.");
+	break;
+    }
+}
+localStorage.removeItem("fuse");
+</script>
+</head>
+<body>
+</body>
+</html>

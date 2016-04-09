@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>야바위 게임</title>
+<meta charset="utf-8">
+<script>
+window.onload = function() {
+	shellGame();
+}
+
+function shellGame() {
+    localStorage.setItem("shell1", "완두콩");
+    localStorage.setItem("shell2", "비어있음");
+    localStorage.setItem("shell3", "비어있음");
+    localStorage["shell1"] = "비어있음";
+    localStorage["shell2"] = "완두콩";
+    localStorage["shell3"] = "비어있음";
+    var value = localStorage.getItem("shell2");
+    localStorage.setItem("shell1", value);
+    value = localStorage.getItem("shell3");
+    localStorage["shell2"] = value;
+    var key = "shell2";
+    localStorage[key] = "완두콩";
+    key = "shell1";
+    localStorage[key] = "비어있음";
+    key = "shell3";
+    localStorage[key] = "비어있음";
+
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+        alert(key + ": " + value);
+    }
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

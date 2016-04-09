@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>기온</title>
+<meta charset="utf-8">
+<script>
+window.onload = showTemps;
+
+function showTemps() {
+	var tempByHour = new Array();
+	tempByHour[0] = 59.2;
+	tempByHour[1] = 60.1;
+	tempByHour[2] = 63;
+	tempByHour[3] = 0;
+	tempByHour[4] = 62;
+
+	for (var i = 0; i < tempByHour.length; i++) {
+		var theTemp = tempByHour[i];
+		var id = "temp" + i;
+		var li = document.getElementById(id);
+		if (i == 0) {
+			li.innerHTML = "정오의 기온은 " + theTemp + "도였습니다.";
+		}
+         else if (theTemp == 0) {
+             theTemp = "none"
+             li.innerHTML = "오후" + i + "시의 기온은 " + theTemp + " 였습니다."; 
+         }
+         else {
+			li.innerHTML = "오후 " + i + "시의 기온은 " + theTemp + "도였습니다.";
+		}
+	}
+}
+</script>
+</head>
+<body>
+<h1>기온</h1>
+<ul>
+	<li id="temp0"></li>
+	<li id="temp1"></li>
+	<li id="temp2"></li>
+	<li id="temp3"></li>
+	<li id="temp4"></li>
+</ul>
+</body>
+</html>
+

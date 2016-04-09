@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<title>스티키 노트</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="notetoself.css">
+<script src="notetoself4.js"></script>
+</head>
+<body>
+	<form>
+		<label for="note_color">색상: </label>
+		<select id="note_color">
+			<option value="LightGoldenRodYellow">노란색</option> <!-- #FAFAD2 -->
+			<option value="PaleGreen">녹색</option> <!-- #98FB98 -->
+			<option value="LightPink">분홍색</option> <!-- #FFB6C1 -->
+			<option value="LightBlue">파란색</option> <!-- #ADD8E6 -->
+		</select>
+		<label for="note_text">내용:</label> <input type="text" id="note_text">
+		<input type="button" id="add_button" value="스티키 노트 추가">
+<!--
+		<input type="button" id="clear_button" value="스티키 노트 전부 삭제">
+-->
+	</form>
+	
+	<ul id="stickies">
+	</ul>
+</body>
+</html>

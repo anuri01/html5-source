@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>스마일리 그리기</title>
+<meta charset="utf-8" />
+<style>
+	canvas {
+		border: 1px solid black;
+	}
+</style>
+<script>
+window.onload = drawSmileyFace;
+
+function drawSmileyFace() {
+	var canvas = document.getElementById("smiley");
+	var context = canvas.getContext("2d");
+
+	// 얼굴
+	context.beginPath();
+	context.arc(300, 				// x   (x,y)는 중심에 있다
+				300, 					// y
+				200, 					// 호의 반경
+				0, 						// 시작 각도
+				degreesToRadians(360),	// 끝 각도
+				true);					// 반 시계 방향
+	context.fillStyle = "#ffffcc";
+	context.fill();
+	context.stroke();
+
+	// 왼쪽 눈
+	context.beginPath();
+	context.arc(200, 250, 25, 0, degreesToRadians(360), true);
+	context.stroke();
+
+	// 오른쪽 눈
+	context.beginPath();
+	context.arc(400, 250, 25, 0, degreesToRadians(360), true);
+	context.stroke();
+
+	// 코
+	context.beginPath();
+	context.moveTo(300, 300);
+	context.lineTo(300, 350);
+	context.stroke();
+
+	// 시작 각도는 중점의 오른쪽에 있다. 그래서 위쪽이 열린 반원을 그리려면
+	// 스마일리의 입을 그릴 때처럼 시계 방향으로 그려야 한다.
+	// 보다 현실감 나는 입 모양을 그리기 위해 
+	// 각도는 반원의 가장자리에서 시작되는 각의 합이다.
+	//
+	context.beginPath();
+	context.arc(300, 350, 75, degreesToRadians(20), degreesToRadians(160), false);
+
+	// 입도 다음과 같은 방법으로 그릴 수 있다:
+	//var angle = degreesToRadians(20);
+	//context.arc(300, 350, 75, angle, Math.PI-angle, false);
+
+	context.stroke();
+
+}
+
+function degreesToRadians(degrees) {
+	radians = (degrees * Math.PI)/180;
+	return radians;
+}
+
+</script>
+</head>
+<body>
+    <canvas width="600" height="600" id="smiley">
+		<p>캔버스가 필요해요!</p>
+		<p>이 예제는 <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+		&lt;canvas&gt; 요소를 지원하는 브라우저에서만 제대로 볼 수 있습니다.</p>
+	</canvas>
+</body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Phrase-o-matic (구절 자동 생성기)</title>
+<meta charset="utf-8">
+<style>
+body {
+	font-family: Verdana, Helvetica, sans-serif;
+}
+</style>
+<script>
+
+function makePhrases() {
+	var words1 = ["노랗고", "유난히", "그래서", "어제 받은", "군침 도는"];
+	var words2 = ["신선한", "맛이 간", "시원한", "커다란", "의문의"];
+	var words3 = ["우유", "오렌지 주스", "바나나", "마늘빵", "치킨과 맥주"];
+
+	var rand1 = Math.floor(Math.random() * words1.length);
+	var rand2 = Math.floor(Math.random() * words2.length);
+	var rand3 = Math.floor(Math.random() * words3.length);
+
+	var phrase = words1[rand1] + " " + words2[rand2] + " " + words3[rand3];
+	var phraseElement = document.getElementById("phrase");
+	phraseElement.innerHTML = phrase;
+}
+window.onload = makePhrases;
+</script>
+</head>
+<body>
+<h1>구절 생성기 왈:</h1>
+
+<p id="phrase"></p>
+
+</body>
+</html>
+

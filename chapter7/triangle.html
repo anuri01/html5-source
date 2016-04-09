@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>삼각형</title>
+<meta charset="utf-8">
+<script>
+window.onload = function() {
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+
+	drawTriangle(canvas, context);
+}
+
+function drawTriangle(canvas, context) {
+	context.beginPath();
+	context.moveTo(100, 150);
+	context.lineTo(250, 75);
+	context.lineTo(125, 30);
+	context.closePath();
+	context.lineWidth = 5;
+	context.stroke();
+	context.fillStyle = "red";
+	context.fill();
+}
+</script>
+<style>
+body {
+}
+canvas { 
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<canvas width="300" height="300" id="myCanvas">
+	<p>이 예제는 <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+	&lt;canvas&gt; 요소를 지원하는 브라우저에서만 제대로 볼 수 있습니다.</p>
+</canvas>
+</body>
+</html>
